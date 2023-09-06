@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_KEY = 'AIzaSyC4aPXGSOiRebdvLuHjYe_SAUhzwt50t2E';
+const API_KEY = 'My-key';
 
 const instance = axios.create({
   baseURL: "https://www.googleapis.com/books/v1/",
