@@ -22,13 +22,15 @@ function SearchBooks() {
   const [query, setQuery] = useState('');
   const [books, setBooks] = useState([]);
   const [category, setCategory] = useState('');
+  const [count, setCount] = useState(0)
   const [sorting, setSorting] = useState('relevance');
   const dispatch = useDispatch();
 
   //срабатывание поиска по нажатию на кнопку поиск
   const handleSearch = async () => {
-    dispatch(fetchBooks(query, category, sorting));
-
+    if (query.trim() !== '') {
+      dispatch(fetchBooks(query, category, sorting));
+    }
   };
 
   //срабатывание поиска по нажатию на enter
