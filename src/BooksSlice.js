@@ -5,6 +5,9 @@ const initialState = {
   books: [],
   isLoading: false,
   totalBooks: 0,
+  query: '',
+  category: 'all',
+  sorting: 'relevance',
 };
 
 const BooksSlice = createSlice({
@@ -23,16 +26,27 @@ const BooksSlice = createSlice({
     setTotalBooks: (state, action) => {
       state.totalBooks = action.payload;
     },
+    setQuery: (state, action) => {
+      state.query = action.payload;
+    },
+    setCategory: (state, action) => {
+      state.category = action.payload;
+    },
+    setSorting: (state, action) => {
+      state.sorting = action.payload;
+    }
   },
 });
 
-export const { startLoading, finishLoading, setBooks, setTotalBooks } = BooksSlice.actions;
+export const { startLoading, finishLoading, setBooks, setTotalBooks, setQuery, setCategory } = BooksSlice.actions;
 
-export const fetchBooks = (query, category, sorting, startIndex, maxResults, count) => async (dispatch) => {
+export const fetchBooks = (query, category, sorting, startIndex, maxResults) => async (dispatch) => {
   dispatch(startLoading());
-  const books = await searchBooks(query, category, sorting, startIndex, maxResults, count);
+  const books = await searchBooks(query, category, sorting, startIndex, maxResults);
   dispatch(setBooks(books.items));
   dispatch(setTotalBooks(books.totalItems));
+  dispatch(setQuery(query));
+  dispatch(setCategory(category))
   dispatch(finishLoading());
 };
 
