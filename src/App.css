@@ -24,6 +24,27 @@
   color: white;
 }
 
+.outer-search {
+  width: 100%;
+  justify-content: center;
+}
+
+.col-12.col-sm-6.col-md-4.col-lg-3.col {
+  width: 20%;
+  border: 1rem;
+}
+
+.row {
+  --bs-gutter-x: 0rem !important;
+}
+
+button.d-flex.align-items-center.btn.btn-primary {
+  height: 100%;
+}
+.h1-title {
+  border: 0.05em;
+}
+
 .App-link {
   color: #61dafb;
 }

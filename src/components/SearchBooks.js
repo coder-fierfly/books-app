@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Select from 'react-select';
-import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { fetchBooks } from "../BooksSlice";
 import { useDispatch } from "react-redux";
 
@@ -52,38 +52,54 @@ function SearchBooks() {
   };
 
   return (
-    <Container>
-      <Row>
-        <Col>
-          <h1>Search for books</h1>
-          <Form>
-            <Form.Group controlId="formBasicSearch">
-              <Form.Control
-                type="text"
-                placeholder="Search for books..."
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                onKeyPress={handleKeyPress}
-              />
-            </Form.Group>
-            <Button variant="primary" onClick={handleSearch}>
-              Search
-            </Button>
-          </Form>
+    <div className='outer-search'>
+      <h1 className='h1-title text-center'>Search for books</h1>
+      <Container>
 
-        </Col>
-        <Select
-          options={categories}
-          value={categories.find((cat) => cat.value === category)}
-          onChange={handleCategoryChange}
-        />
-        <Select
-          options={sortingOptions}
-          value={sorting}
-          onChange={handleSortingChange}
-        />
-      </Row>
-    </Container>
+        <Row>
+          <Col className="col-12 col-md-4">
+
+            <Form className="d-flex align-items-center">
+              <Form.Group controlId="formBasicSearch" className="flex-grow-1">
+                <Form.Control
+                  className="enterForm"
+                  type="text"
+                  placeholder="Search..."
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                  onKeyPress={handleKeyPress}
+                />
+              </Form.Group>
+              <Button
+                variant="primary"
+                className="d-flex align-items-center"
+                onClick={handleSearch}
+              >
+                <i className="fa fa-search"></i>
+                <span className="ml-2"></span>
+              </Button>
+            </Form>
+
+          </Col>
+          <Col className="col-12 col-md-4">
+            <Select
+              className='CategoriesList'
+              options={categories}
+              value={categories.find((cat) => cat.value === category)}
+              onChange={handleCategoryChange}
+            />
+          </Col>
+          <Col className="col-12 col-md-4">
+            <Select
+              className='SortingList'
+              options={sortingOptions}
+              value={sorting}
+              onChange={handleSortingChange}
+            />
+          </Col>
+        </Row>
+      </Container>
+    </div>
   );
 }
 

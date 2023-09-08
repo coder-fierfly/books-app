@@ -42,40 +42,48 @@ const BookList = () => {
       {isLoading ? (
         <p>Loading...</p>
       ) : (
-        <ul>
+        <>
           {(totalBooks > 0) ? <p>Number of books: {totalBooks}</p> : <p>Enter a request</p>}
-          {books.map((book) => (
+          <Row>
+            {books.map((book) => (
 
-            <Col md={5} key={book.id} onClick={() => handleBookClick(book.id)}>
-              <Card style={{ marginBottom: '10px' }}>
-                <Card.Img
-                  variant="top"
-                  src={
-                    book.volumeInfo.imageLinks
-                      ? book.volumeInfo.imageLinks.thumbnail
-                      : 'https://via.placeholder.com/128x192.png?text=No+Image'
-                  }
-                  alt={book.volumeInfo.title}
-                />
-                <Card.Body>
-                  <Card.Title>{book.volumeInfo.title || ''}</Card.Title>
-                  <Card.Text>
-                    Category: {book.volumeInfo.categories ? book.volumeInfo.categories[0] : ''}
-                  </Card.Text>
-                  <Card.Text>
-                    Authors: {book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : ''}
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
 
-          ))}
-        </ul>
+              <Col className="col-12 col-sm-6 col-md-4 col-lg-3" key={book.id} onClick={() => handleBookClick(book.id)}>
+                <Card style={{ marginBottom: '10px' }}>
+                  <Card.Img
+                    variant="top"
+                    src={
+                      book.volumeInfo.imageLinks
+                        ? book.volumeInfo.imageLinks.thumbnail
+                        : 'https://via.placeholder.com/128x192.png?text=No+Image'
+                    }
+                    alt={book.volumeInfo.title}
+                  // style={{ width: '10rem', height: '15rem' }}
+                  />
+                  <Card.Body>
+                    <Card.Title>{book.volumeInfo.title || ''}</Card.Title>
+                    <Card.Text>
+                      Category: {book.volumeInfo.categories ? book.volumeInfo.categories[0] : ''}
+                    </Card.Text>
+                    <Card.Text>
+                      Authors: {book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : ''}
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
 
-      )}
+            ))
+
+
+            }
+          </Row>
+        </>
+
+      )
+      }
       {(totalBooks > startIndex) ? <Button onClick={handleLoadMore}>More</Button> : ''}
       {/* <Button onClick={handleLoadMore}>More</Button> */}
-    </div>
+    </div >
   );
 };
 
