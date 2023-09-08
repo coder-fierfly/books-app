@@ -4,9 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import BookList from './components/BooksList';
 import Book from './components/Book';
-/*
-При клике на карточку происходит переход на детальную страницу книги, на которой выводятся ее данные: изображение обложки, название, все категории, все авторы, описание.
-*/
+
 function App() {
   return (
     <Router>

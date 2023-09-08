@@ -15,11 +15,12 @@ const Book = () => {
 
     return (
         <div>
-            <img src={book.volumeInfo.imageLinks?.thumbnail || 'https://via.placeholder.com/128x192.png?text=No+Image'} alt={book.volumeInfo.title} />
             <h2>{book.volumeInfo.title}</h2>
-            <p>Authors: {book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : ''}</p>
+            <img className="img-class" src={book.volumeInfo.imageLinks?.thumbnail || 'https://via.placeholder.com/128x192.png?text=No+Image'} alt={book.volumeInfo.title} />
+
+            <h5>Authors: {book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : ''}</h5>
             <p>Category: {book.volumeInfo.categories ? book.volumeInfo.categories[0] : ''}</p>
-            <p>Description: {book.volumeInfo.description || ''}</p>
+            <h6>Description: {book.volumeInfo.description || ''}</h6>
 
         </div>
     );

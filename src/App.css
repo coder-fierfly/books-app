@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  justify-content: center;
 }
 
 .App-logo {
@@ -29,13 +30,28 @@
   justify-content: center;
 }
 
-.col-12.col-sm-6.col-md-4.col-lg-3.col {
-  width: 20%;
-  border: 1rem;
+.header {
+  background-image: url("./img/2680.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 .row {
-  --bs-gutter-x: 0rem !important;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+.nextBottom {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 1rem;
+}
+
+@media (min-width: 992px) {
+  .col-12.col-sm-6.col-md-4.col-lg-3.col {
+    width: 20%;
+  }
 }
 
 button.d-flex.align-items-center.btn.btn-primary {

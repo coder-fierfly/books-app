@@ -73,16 +73,13 @@ const BookList = () => {
               </Col>
 
             ))
-
-
             }
           </Row>
         </>
 
       )
       }
-      {(totalBooks > startIndex) ? <Button onClick={handleLoadMore}>More</Button> : ''}
-      {/* <Button onClick={handleLoadMore}>More</Button> */}
+      {(totalBooks > startIndex) ? <Button className='nextBottom' onClick={handleLoadMore}>More</Button> : ''}
     </div >
   );
 };

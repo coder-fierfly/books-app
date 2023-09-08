@@ -53,7 +53,9 @@ function SearchBooks() {
 
   return (
     <div className='outer-search'>
-      <h1 className='h1-title text-center'>Search for books</h1>
+      <div className='header'>
+        <h1 className='h1-title text-center'>Search for books</h1>
+      </div>
       <Container>
 
         <Row>
